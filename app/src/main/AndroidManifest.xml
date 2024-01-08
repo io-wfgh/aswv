@@ -11,8 +11,7 @@
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
-	package="mgks.os.swv"
-	android:installLocation="auto">
+    android:installLocation="auto">
 
 	<supports-screens
 		android:anyDensity="true"
@@ -72,8 +71,8 @@
 				<category android:name="android.intent.category.DEFAULT" />
 				<category android:name="android.intent.category.BROWSABLE" />
 				<data android:scheme="https"
-					android:host="apps.mgks.dev"
-					android:pathPrefix="/swv" />
+					android:host="realty.arcadia.global"
+					android:pathPrefix="/" />
 				<!-- if you want only a specific directory from your website to be opened in the app through external links -->
 			</intent-filter>
 			<intent-filter android:label="OpenURI">

@@ -9,6 +9,8 @@ package mgks.os.swv;
  * Giving right credit to developers encourages them to create better projects :)
  */
 
+import static com.google.firebase.BuildConfig.BUILD_TYPE;
+
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
@@ -254,7 +256,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 		cookieManager.setAcceptCookie(true);
 
 		// setting port view
-		String cookie_orientation = !ASWP_OFFLINE ? get_cookies("ORIENT"):"";
+		String cookie_orientation = !ASWP_OFFLINE ? get_cookies("ORIENT") : "";
 		set_orientation((!Objects.equals(cookie_orientation, "") ? Integer.parseInt(cookie_orientation) :ASWV_ORIENTATION), false);
 
 		// use Service Worker
@@ -894,7 +896,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 		Log.d("COOKIES: ", cookieManager.getCookie(ASWV_URL));
 	}
 
-	//Getting device basic information
+	//Getting device basic information - manual override unref BuildConfig.VERSION_CODE
 	public void get_info(){
 		if(true_online) {
 			fcm_token();
@@ -902,8 +904,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 			DeviceDetails dv = new DeviceDetails();
 			set_cookie("DEVICE_INFO=" + dv.pull());
 			set_cookie("DEV_API=" + Build.VERSION.SDK_INT);
-			set_cookie("APP_ID=" + BuildConfig.APPLICATION_ID);
-			set_cookie("APP_VER=" + BuildConfig.VERSION_CODE + "/" + BuildConfig.VERSION_NAME);
+			set_cookie("APP_ID=" + BuildConfig.LIBRARY_PACKAGE_NAME);
+			set_cookie("APP_VER=" + mgks.os.swv.BuildConfig.VERSION_CODE + "/" + BuildConfig.VERSION_NAME);
 		}
 	}
 
